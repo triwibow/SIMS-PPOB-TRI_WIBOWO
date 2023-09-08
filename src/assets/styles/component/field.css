@@ -1,7 +1,48 @@
+.input-field-container {
+  width: 100%;
+}
+.input-field-wrapper {
+  position: relative;
+  height: fit-content;
+}
+
 .text-input-field {
-  border: 1px solid #dadada;
-  border-radius: 6px;
-  padding: 8px 12px;
+  border: 1px solid #c7c7c7;
+  border-radius: 4px;
+  padding: 8px 32px;
   font-size: 14px;
   width: 100%;
+}
+
+.text-input-field::placeholder {
+  color: #c7c7c7;
+}
+
+.text-input-field:focus {
+  outline: none;
+}
+
+.text-input-prefix-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color:#c7c7c7;
+}
+
+.text-input-suffix-icon {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  color:#c7c7c7;
+  cursor: pointer;
+}
+
+.text-input-suffix-icon button {
+  background-color: transparent;
+  border-width: 0;
+  color:#c7c7c7;
+  padding: 0;
+  margin: 0;
 }

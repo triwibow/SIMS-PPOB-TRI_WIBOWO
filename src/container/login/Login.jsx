@@ -1,6 +1,6 @@
 import logo from '../../assets/icons/logo.png'
 import loginIlust from '../../assets/images/ilustrasi-login.png'
-import TextInput from '../../component/field/TextInput'
+import TextField from '../../component/field/TextField'
 
 const Login = () => {
   return (
@@ -20,10 +20,10 @@ const Login = () => {
               <h1 className='fw-bold text-center mb-3'>Lengkapi Data Untuk Membuat Akun</h1>
 
               <form>
-                <TextInput 
+                <TextField 
                   className="mb-2"
                 />
-                <TextInput 
+                <TextField 
                   className="mb-2"
                 />
               </form>
