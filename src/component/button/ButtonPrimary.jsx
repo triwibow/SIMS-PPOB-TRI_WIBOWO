@@ -1,9 +1,12 @@
+import { Spinner } from "reactstrap"
+
 const ButtonPrimary = (props) => {
   const {
     type,
     text,
     disabled,
-    onClick
+    onClick,
+    loading
   } = props
 
   return(
@@ -13,7 +16,13 @@ const ButtonPrimary = (props) => {
       disabled={disabled}
       onClick={onClick}
     >
-      {text}
+      {loading? (
+        <Spinner color="light" size={'sm'}/>
+      ):(
+        <>
+          {text}
+        </>
+      )}
     </button>
   )
 }
