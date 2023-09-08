@@ -7,11 +7,23 @@ import ButtonPrimary from '../../component/button/ButtonPrimary'
 import TextButton from '../../component/button/TextButton'
 import { useFormik } from 'formik';
 import { registerSchema } from '../../schema/registerSchema'
+import { register } from '../../store/actions/registerAction'
+import { useDispatch, useSelector } from 'react-redux'
 
 const Register = () => {
 
+  const dispatch = useDispatch()
+  const { status, message } = useSelector(state => state.register)
+
   const onSubmit = (val) => {
-    console.log(val)
+    const payload = {
+      email:val.email,
+      first_name:val.first_name,
+      last_name:val.last_name,
+      password:val.password
+    }
+
+    dispatch(register(payload))
   }
 
   const form = useFormik({
@@ -95,6 +107,7 @@ const Register = () => {
                 type="button"
                 text="Registrasi"
                 onClick={form.handleSubmit}
+                loading={(status == 'loading')}
               />
 
               <div className='d-flex align-items-center justify-content-center mt-4'>
