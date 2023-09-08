@@ -12,7 +12,7 @@ const TextField = (props) => {
   return(
     <div className={`input-field-container ${wrapperClass}`}>
       {label && (
-        <label className={`text-input-label`}>{label}</label>
+        <label className={`text-app-sm mb-2 fw-bold`}>{label}</label>
       )}
       <div className="input-field-wrapper">
         <div className={`text-input-prefix-icon`}>

@@ -9,6 +9,7 @@ import Dashboard from './pages/dashboard/index';
 import TopUp from './pages/topup/index'
 import Pay from './pages/pay/index'
 import Transaction from './pages/transaction/index'
+import Account from './pages/account/index'
 
 
 function App() {
@@ -18,9 +19,10 @@ function App() {
       {/* <Transaction /> */}
       {/* <Pay /> */}
       {/* <Dashboard /> */}
-      <TopUp />
+      {/* <TopUp /> */}
       {/* <Login /> */}
       {/* <Register /> */}
+      <Account />
     </main>
   );
 }

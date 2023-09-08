@@ -27,3 +27,13 @@
   padding: 16px 0;
   border-radius: 4px;
 }
+
+.button-outline-danger {
+  background-color: #FFFFFF;
+  border: 1px solid #ff0000;
+  width: 100%;
+  font-size: 12px;
+  padding: 14px 12px;
+  color: #ff0000;
+  border-radius: 4px;
+}
