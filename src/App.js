@@ -11,18 +11,13 @@ import Pay from './pages/pay/index'
 import Transaction from './pages/transaction/index'
 import Account from './pages/account/index'
 
+import Route from './route/Route';
+
 
 function App() {
   return (
     <main>
-      <Navbar />
-      {/* <Transaction /> */}
-      {/* <Pay /> */}
-      {/* <Dashboard /> */}
-      {/* <TopUp /> */}
-      {/* <Login /> */}
-      {/* <Register /> */}
-      <Account />
+      <Route />
     </main>
   );
 }

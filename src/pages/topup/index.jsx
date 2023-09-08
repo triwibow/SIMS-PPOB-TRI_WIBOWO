@@ -1,8 +1,12 @@
 import TopUp from "../../container/topup/TopUp"
+import Navbar from "../../component/navbar/Navbar"
 
 const Index = () => {
   return (
-    <TopUp />
+    <>
+      <Navbar />
+      <TopUp />
+    </>
   )
 }
 

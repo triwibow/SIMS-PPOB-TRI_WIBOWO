@@ -1,8 +1,12 @@
 import Pay from "../../container/pay/Pay"
+import Navbar from "../../component/navbar/Navbar"
 
 const Index = () => {
   return (
-    <Pay />
+    <>
+      <Navbar />
+      <Pay />
+    </>
   )
 }
 

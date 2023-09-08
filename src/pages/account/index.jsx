@@ -1,8 +1,12 @@
 import Account from "../../container/account/Account"
+import Navbar from "../../component/navbar/Navbar"
 
 const Index = () => {
   return (
-    <Account />
+    <>
+      <Navbar />
+      <Account />
+    </>
   )
 }
 

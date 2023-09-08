@@ -1,8 +1,12 @@
 import Dashboard from "../../container/dashboard/Dashboard"
+import Navbar from "../../component/navbar/Navbar"
 
 const Index = () => {
   return (
-    <Dashboard />
+    <>
+      <Navbar />
+      <Dashboard />
+    </>
   )
 }
 

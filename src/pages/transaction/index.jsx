@@ -1,8 +1,12 @@
 import Transaction from '../../container/transaction/Transaction'
+import Navbar from '../../component/navbar/Navbar'
 
 const Index = () => {
   return (
-    <Transaction />
+    <>
+      <Navbar />
+      <Transaction />
+    </>
   )
 }
 
