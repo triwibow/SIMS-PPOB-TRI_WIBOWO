@@ -1,12 +1,17 @@
 import React from "react";
+import logo from '../../assets/icons/logo.png'
 
 const Navbar = () => {
   return(
     <nav className="navbar-border-bottom">
       <div className="navbar-app container desktop">
         <div className="navbar-app-brand">
-          <a href={"/"}>
-            <h1 className="text-xl text-gradient fw-bold">CryptoBit</h1>
+          <a href={"/"} className="d-flex align-items-center navbar-app-link">
+            <img 
+              src={logo}
+              alt="logo"
+            />
+            <span className="text-app-lg fw-bold ms-2">SIMS PPOB</span>
           </a>
         </div>
         <div className="navbar-app-collapse">

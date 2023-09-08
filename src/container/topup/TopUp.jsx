@@ -48,6 +48,10 @@ const TopUp = () => {
       <BannerSaldo /> 
       <div className='container'>
         <div className='row'>
+          <div className='col-md-12 mb-5'> 
+            <p className='mb-3 text-app-dark text-head-4'>Silahkan masukan</p>
+            <h1 className='text-app-dark text-head-2 fw-bold'>Nominal Top Up</h1>
+          </div>
           <div className='col-md-7'>
             <form className=''>
               <TextField 
