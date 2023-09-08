@@ -22,7 +22,7 @@
 .navbar-app-toggle {
   background: transparent;
   border-width: 0;   
-  color: var(--color-primary);
+  color: #000;
   display: none;
 }
 
@@ -38,12 +38,12 @@
 }
 
 .navbar-app-item {
-  margin-left: 21px;
+  margin-left: 100px;
 }
 
 .navbar-app-item.divider {
   padding-right: 21px;
-  border-right: 1px solid var(--color-secondary);
+  border-right: 1px solid #383838;
 }
 
 .navbar-app-item.profile {
@@ -52,16 +52,16 @@
 }
 
 .navbar-app-link {
-  color: var(--color-primary);
-  font-size: var(--text-md);
+  color: #000000;
+  font-size: 14px;
   font-weight: normal;
   text-decoration: none;
   transition: all 0.3s step-start;
 }
 
 .navbar-app-link:hover {
-  color: var(--color-dark);
-  font-weight: var(--fw-lg);
+  color: #000;
+  font-weight: bold;
   transition: all 0.3 step-start;
 }
 

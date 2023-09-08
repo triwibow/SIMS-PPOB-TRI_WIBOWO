@@ -11,9 +11,9 @@ import Register from './container/register/Register';
 function App() {
   return (
     <main>
-      {/* <Navbar />
-      <Home /> */}
-      <Login />
+      <Navbar />
+      <Home />
+      {/* <Login /> */}
       {/* <Register /> */}
     </main>
   );
