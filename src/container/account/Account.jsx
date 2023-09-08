@@ -5,6 +5,8 @@ import ButtonOutline from '../../component/button/ButtonOutline'
 import PhotoProfile from './component/PhotoProfile'
 
 const Account = () => {
+
+	console.log(process.env.REACT_APP_API_URL)
 	return(
 		<div className="container mt-5">
 			<div className="row">
