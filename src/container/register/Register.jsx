@@ -2,14 +2,13 @@ import logo from '../../assets/icons/logo.png'
 import loginIlust from '../../assets/images/ilustrasi-login.png'
 import TextInput from '../../component/field/TextInput'
 
-const Login = () => {
+const Register = () => {
   return (
     <div className="container-fluid padding-0"> 
       <div className='row padding-0'>
-        <div className="col-md-6 padding-0">
+        <div className="col-md-6">
           <div className='auth-wrapper'>
             <div>
-
               <div className='d-flex align-items-center justify-content-center mb-3'>
                 <img 
                   src={logo}
@@ -20,6 +19,15 @@ const Login = () => {
               <h1 className='fw-bold text-center mb-3'>Lengkapi Data Untuk Membuat Akun</h1>
 
               <form>
+                <TextInput 
+                  className="mb-2"
+                />
+                <TextInput 
+                  className="mb-2"
+                />
+                <TextInput 
+                  className="mb-2"
+                />
                 <TextInput 
                   className="mb-2"
                 />
@@ -41,4 +49,4 @@ const Login = () => {
   )
 }
 
-export default Login
+export default Register

@@ -5,6 +5,7 @@ import './App.css';
 import Home from './pages/home/index';
 import Navbar from './component/navbar/Navbar';
 import Login from './pages/login/index'
+import Register from './container/register/Register';
 
 
 function App() {
@@ -12,7 +13,8 @@ function App() {
     <main>
       {/* <Navbar />
       <Home /> */}
-      <Login />
+      {/* <Login /> */}
+      <Register />
     </main>
   );
 }
