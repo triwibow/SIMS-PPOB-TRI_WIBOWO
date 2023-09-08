@@ -57,3 +57,14 @@
   background-color: #c6c0c0;
   color: #FFFFFF;
 }
+
+
+.button-close-modal {
+  background-color: #FFFFFF;
+  border: 1px solid #646464;
+  width: 100%;
+  font-size: 12px;
+  padding: 14px 12px;
+  color: #646464;
+  border-radius: 23px;
+}
