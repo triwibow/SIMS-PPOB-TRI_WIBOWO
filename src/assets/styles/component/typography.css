@@ -1,0 +1,13 @@
+.text-app-primary {
+  color: #383838;
+  font-size: 14px;
+}
+
+.text-app-danger {
+  color: #ff0000;
+  font-size: 14px;
+}
+
+.text-app-sm {
+  font-size: 12px;
+}
