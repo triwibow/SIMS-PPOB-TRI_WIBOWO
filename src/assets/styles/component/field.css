@@ -1,0 +1,7 @@
+.text-input-field {
+  border: 1px solid #dadada;
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 14px;
+  width: 100%;
+}
