@@ -8,6 +8,16 @@
   border-radius: 4px;
 }
 
+.button-primary:hover {
+  background-color: #FFFFFF;
+  color: #ff0000;
+  border: 1px solid #ff0000;
+}
+
+.button-primary:disabled{
+  background-color: #c6c0c0;
+}
+
 .text-button {
   background-color: transparent;
   border-width: 0;
@@ -36,4 +46,14 @@
   padding: 14px 12px;
   color: #ff0000;
   border-radius: 4px;
+}
+
+.button-outline-danger:hover {
+  background-color: #ff0000;
+  color: #FFFFFF;
+}
+
+.button-outline-danger:disabled{
+  background-color: #c6c0c0;
+  color: #FFFFFF;
 }

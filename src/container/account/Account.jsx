@@ -41,6 +41,7 @@ const Account = () => {
 						<ButtonPrimary 
 							type="button"
 							text="Simpan"
+							disabled={false}
 						/>
 					</form>
 				</div>

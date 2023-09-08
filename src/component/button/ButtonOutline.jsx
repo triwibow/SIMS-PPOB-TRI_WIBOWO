@@ -2,13 +2,15 @@ const ButtonOutline = (props) => {
     const {
       type,
       text,
-      className
+      className,
+      disabled
     } = props
   
     return(
       <button
         className={`button-outline-danger ${className}`}
         type={type}
+        disabled={disabled}
       >
         {text}
       </button>
