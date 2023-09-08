@@ -1,4 +1,4 @@
-import { Spinner } from "reactstrap"
+import { Spinner, Button } from "reactstrap"
 
 const ButtonPrimary = (props) => {
   const {
@@ -10,7 +10,7 @@ const ButtonPrimary = (props) => {
   } = props
 
   return(
-    <button
+    <Button
       className="button-primary"
       type={type}
       disabled={disabled}
@@ -23,7 +23,7 @@ const ButtonPrimary = (props) => {
           {text}
         </>
       )}
-    </button>
+    </Button>
   )
 }
 

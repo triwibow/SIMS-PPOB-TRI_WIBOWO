@@ -1,19 +1,28 @@
+import { Button, Spinner } from 'reactstrap'
+
 const ButtonOutline = (props) => {
     const {
       type,
       text,
       className,
-      disabled
+      disabled,
+      loading
     } = props
   
     return(
-      <button
+      <Button
         className={`button-outline-danger ${className}`}
         type={type}
         disabled={disabled}
       >
-        {text}
-      </button>
+        {loading? (
+          <Spinner color="danger" size={'sm'}/>
+        ):(
+          <>
+            {text}
+          </>
+        )}
+      </Button>
     )
   }
   
