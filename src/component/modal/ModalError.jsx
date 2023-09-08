@@ -1,13 +1,25 @@
-import React, { useState } from 'react';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import React from 'react';
+import { Button, Modal, ModalBody } from 'reactstrap';
+import { useDispatch, useSelector } from 'react-redux';
+import { modalError } from '../../store/actions/modalAction';
 
-const ModalError = () => {
-  const [modal, setModal] = useState(true);
+const ModalError = (props) => {
+	const {
+		onClose
+	} = props
 
-  const toggle = () => setModal(!modal);
+	const dispatch = useDispatch();
+	const { isModalError, meta } = useSelector(state => state.modal)
+
+	const closeModal = () => {
+		dispatch(modalError(false, null));
+		if(typeof onClose == 'function'){
+			onClose()
+		}
+	}
 
   return (
-    <Modal className='modal' isOpen={modal} toggle={toggle} centered>
+    <Modal className='modal' isOpen={isModalError} toggle={closeModal} centered>
 			<ModalBody className='text-center py-5 px-3'>
 				<div className='d-block mb-4'>
 					<img 
@@ -20,10 +32,10 @@ const ModalError = () => {
 						}}
 					/>
 				</div>
-				<p className='mb-5'>Email sudah terdaftar</p>
+				<p className='mb-5'>{meta && meta.description}</p>
 				<Button 
 					className='button-close-modal' 
-					onClick={toggle}
+					onClick={closeModal}
 					style={{width:'30%'}}
 				>
 					Tutup

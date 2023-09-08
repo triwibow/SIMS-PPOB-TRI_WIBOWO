@@ -22,6 +22,6 @@ export const register = (payload)=> async (dispatch, getState) => {
   }catch(err){
     const error = err
     const errors = error.response?.data
-    dispatch(REGISTER_ERROR({message:errors?.messages}))
+    dispatch(REGISTER_ERROR({message:errors?.message}))
   }
 }

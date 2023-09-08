@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import logo from '../../assets/icons/logo.png'
 import loginIlust from '../../assets/images/ilustrasi-login.png'
 import TextField from '../../component/field/TextField'
@@ -8,6 +9,7 @@ import TextButton from '../../component/button/TextButton'
 import { useFormik } from 'formik';
 import { registerSchema } from '../../schema/registerSchema'
 import { register } from '../../store/actions/registerAction'
+import { modalError } from '../../store/actions/modalAction'
 import { useDispatch, useSelector } from 'react-redux'
 import ModalError from '../../component/modal/ModalError'
 
@@ -38,6 +40,12 @@ const Register = () => {
     validationSchema:registerSchema,
 		onSubmit:onSubmit
 	});
+
+  useEffect(() => {
+    if(status == 'error'){
+			dispatch(modalError(true, {description:message}))
+		}
+  }, [status])
 
   return (
     <>
