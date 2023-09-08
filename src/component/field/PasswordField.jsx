@@ -13,7 +13,9 @@ const PasswordField = (props) => {
     prefixIcon,
     name,
     onChange,
-    value
+    value,
+    touched,
+    error
   } = props
 
   const handleEyeClick = () => {
@@ -30,6 +32,8 @@ const PasswordField = (props) => {
   const handleChange = (e) => {
     onChange(name, e.target.value, false)
   } 
+
+  const isError = touched && error ? true:false;
 
   return(
     <div className={`input-field-container ${wrapperClass}`}>
@@ -60,6 +64,11 @@ const PasswordField = (props) => {
           </button>
         </div>
       </div>
+      {isError && (
+				<small className="ms-2 text-app-danger text-app-sm">
+					{error}
+				</small>
+			)}
     </div>
   )
 }

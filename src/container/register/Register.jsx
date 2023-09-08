@@ -6,6 +6,7 @@ import { IoAtOutline, IoPersonOutline, IoLockClosedOutline } from 'react-icons/i
 import ButtonPrimary from '../../component/button/ButtonPrimary'
 import TextButton from '../../component/button/TextButton'
 import { useFormik } from 'formik';
+import { registerSchema } from '../../schema/registerSchema'
 
 const Register = () => {
 
@@ -21,6 +22,7 @@ const Register = () => {
       password:'',
       confirm_password:''
     },
+    validationSchema:registerSchema,
 		onSubmit:onSubmit
 	});
 

@@ -9,13 +9,17 @@ const TextField = (props) => {
     prefixIcon,
     name,
     onChange,
-    value
+    value,
+    touched,
+    error
   } = props
 
   const handleChange = (e) => {
     console.log(e.target.value)
     onChange(name, e.target.value, false)
   } 
+
+  const isError = touched && error ? true:false;
 
   return(
     <div className={`input-field-container ${wrapperClass}`}>
@@ -34,6 +38,11 @@ const TextField = (props) => {
           
         />
       </div>
+      {isError && (
+				<small className="ms-2 text-app-danger text-app-sm">
+					{error}
+				</small>
+			)}
     </div>
   )
 }
