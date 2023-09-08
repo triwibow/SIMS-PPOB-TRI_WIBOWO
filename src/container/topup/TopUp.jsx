@@ -1,5 +1,5 @@
 import React from 'react'
-import { IoAtOutline, IoPersonOutline, IoLockClosedOutline } from 'react-icons/io5'
+import { IoCashOutline } from 'react-icons/io5'
 import BannerSaldo from '../../component/banner/BannerSaldo'
 import ButtonPrimary from '../../component/button/ButtonPrimary'
 import TextField from '../../component/field/TextField'
@@ -56,8 +56,8 @@ const TopUp = () => {
             <form className=''>
               <TextField 
                 wrapperClass="mb-3"
-                placeholder="masukkan email anda"
-                prefixIcon={<IoAtOutline />}
+                placeholder="masukkan nominal Top Up"
+                prefixIcon={<IoCashOutline />}
               />        
               <ButtonPrimary 
                 type="button"

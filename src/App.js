@@ -7,14 +7,16 @@ import Login from './pages/login/index'
 import Register from './container/register/Register';
 import Dashboard from './pages/dashboard/index';
 import TopUp from './pages/topup/index'
+import Pay from './pages/pay/index'
 
 
 function App() {
   return (
     <main>
       <Navbar />
+      <Pay />
       {/* <Dashboard /> */}
-      <TopUp />
+      {/* <TopUp /> */}
       {/* <Login /> */}
       {/* <Register /> */}
     </main>
