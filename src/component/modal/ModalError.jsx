@@ -7,7 +7,7 @@ const ModalError = () => {
   const toggle = () => setModal(!modal);
 
   return (
-    <Modal isOpen={modal} toggle={toggle} centered>
+    <Modal className='modal' isOpen={modal} toggle={toggle} centered>
 			<ModalBody className='text-center py-5 px-3'>
 				<div className='d-block mb-4'>
 					<img 
