@@ -1,13 +1,57 @@
 .text-app-primary {
   color: #383838;
-  font-size: 14px;
+  font-size: var(--text-md);
+}
+
+.text-app-dark {
+  color:#1d1d1d;
+  font-size: var(--text-md);
 }
 
 .text-app-danger {
   color: #ff0000;
-  font-size: 14px;
+  font-size: var(--text-md);
 }
 
 .text-app-sm {
-  font-size: 12px;
+  font-size: var(--text-sm);
 }
+
+.text-app-md {
+  font-size: var(--text-md);
+}
+
+.text-app-lg {
+  font-size: var(--text-lg);
+}
+
+.text-app-xl {
+  font-size: var(--text-xl);
+}
+
+
+.text-head-extra {
+  font-size: var(--text-xxxxxxl);
+}
+
+.text-head-1 {
+  font-size: var(--text-xxxxxl);
+}
+
+.text-head-2 {
+  font-size: var(--text-xxxxl);
+}
+
+.text-head-3 {
+  font-size: var(--text-xxxl);
+}
+
+.text-head-4 {
+  font-size: var(--text-xxl);
+}
+
+.text-head-5 {
+  font-size: var(--text-xl);
+}
+
+
