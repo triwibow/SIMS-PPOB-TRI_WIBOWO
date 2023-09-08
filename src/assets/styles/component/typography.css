@@ -13,6 +13,11 @@
   font-size: var(--text-md);
 }
 
+.text-app-white {
+  color: #FFFFFF;
+  font-size: var(--text-md);
+}
+
 .text-app-sm {
   font-size: var(--text-sm);
 }
