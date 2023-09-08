@@ -6,13 +6,15 @@ import Navbar from './component/navbar/Navbar';
 import Login from './pages/login/index'
 import Register from './container/register/Register';
 import Dashboard from './pages/dashboard/index';
+import TopUp from './pages/topup/index'
 
 
 function App() {
   return (
     <main>
       <Navbar />
-      <Dashboard />
+      {/* <Dashboard /> */}
+      <TopUp />
       {/* <Login /> */}
       {/* <Register /> */}
     </main>

@@ -5,7 +5,7 @@ import saldoBg from '../../assets/images/bg-saldo.png'
 
 const BannerSaldo = () => {
   return (
-    <div className='container mt-section mb-section'>
+    <div className='container mt-5 mb-section'>
       <div className='row'>
         <div className='col-md-6'>
           <PhotoProfile />

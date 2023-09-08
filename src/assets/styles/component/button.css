@@ -19,3 +19,11 @@
   background-color: transparent;
   border-width: 0;
 }
+
+.button-outline-white {
+  background-color: #FFFFFF;
+  border: 1px solid #cccccc;
+  width: 100%;
+  padding: 16px 0;
+  border-radius: 4px;
+}
