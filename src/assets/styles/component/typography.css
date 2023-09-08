@@ -2,6 +2,20 @@
   color: #383838;
   font-size: var(--text-md);
 }
+.text-app-secondary {
+  color: #c7c7c7;
+  font-size: var(--text-md);
+}
+
+.text-app-success {
+  color:#61B798;
+  font-size: var(--text-md);
+}
+
+.text-app-warning {
+  color:#E9674F;
+  font-size: var(--text-md);
+}
 
 .text-app-dark {
   color:#1d1d1d;

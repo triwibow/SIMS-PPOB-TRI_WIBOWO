@@ -8,15 +8,17 @@ import Register from './container/register/Register';
 import Dashboard from './pages/dashboard/index';
 import TopUp from './pages/topup/index'
 import Pay from './pages/pay/index'
+import Transaction from './pages/transaction/index'
 
 
 function App() {
   return (
     <main>
       <Navbar />
-      <Pay />
+      {/* <Transaction /> */}
+      {/* <Pay /> */}
       {/* <Dashboard /> */}
-      {/* <TopUp /> */}
+      <TopUp />
       {/* <Login /> */}
       {/* <Register /> */}
     </main>
