@@ -9,9 +9,10 @@ import TextButton from '../../component/button/TextButton'
 import { useFormik } from 'formik';
 import { registerSchema } from '../../schema/registerSchema'
 import { register } from '../../store/actions/registerAction'
-import { modalError } from '../../store/actions/modalAction'
+import { modalError, modalSuccess } from '../../store/actions/modalAction'
 import { useDispatch, useSelector } from 'react-redux'
 import ModalError from '../../component/modal/ModalError'
+import ModalSuccess from '../../component/modal/ModalSuccess'
 
 const Register = () => {
 
@@ -42,6 +43,10 @@ const Register = () => {
 	});
 
   useEffect(() => {
+    if(status == 'success'){
+			dispatch(modalSuccess(true, {description:message}))
+		}
+
     if(status == 'error'){
 			dispatch(modalError(true, {description:message}))
 		}
@@ -142,6 +147,7 @@ const Register = () => {
         </div>
       </div>
       <ModalError />
+      <ModalSuccess />
     </>
   )
 }
