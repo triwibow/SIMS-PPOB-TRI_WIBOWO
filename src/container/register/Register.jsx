@@ -5,8 +5,25 @@ import PasswordField from '../../component/field/PasswordField'
 import { IoAtOutline, IoPersonOutline, IoLockClosedOutline } from 'react-icons/io5'
 import ButtonPrimary from '../../component/button/ButtonPrimary'
 import TextButton from '../../component/button/TextButton'
+import { useFormik } from 'formik';
 
 const Register = () => {
+
+  const onSubmit = (val) => {
+    console.log(val)
+  }
+
+  const form = useFormik({
+		initialValues:{
+      email:'',
+      first_name:'',
+      last_name:'',
+      password:'',
+      confirm_password:''
+    },
+		onSubmit:onSubmit
+	});
+
   return (
     <div className="container-fluid padding-0"> 
       <div className='row padding-0'>
@@ -20,36 +37,62 @@ const Register = () => {
               <span className='fw-bold ms-2'>SIMS PPOB</span>
             </div>
             <h1 className='fw-bold text-center mb-3'>Lengkapi Data Untuk Membuat Akun</h1>
-            <form className='form-auth'>
+            <div className='form-auth'>
               <TextField 
                 wrapperClass="mb-3"
                 placeholder="masukkan email anda"
                 prefixIcon={<IoAtOutline />}
+                onChange={form.setFieldValue}
+                name="email"
+                value={form.values.email}
+                touched={form.touched.email}
+                error={form.errors.email}
               />
               <TextField 
                 wrapperClass="mb-3"
                 placeholder="nama depan"
                 prefixIcon={<IoPersonOutline />}
+                onChange={form.setFieldValue}
+                name="first_name"
+                value={form.values.first_name}
+                touched={form.touched.first_name}
+                error={form.errors.first_name}
               />
               <TextField 
                 wrapperClass="mb-3"
                 placeholder="nama belakang"
                 prefixIcon={<IoPersonOutline />}
+                onChange={form.setFieldValue}
+                name="last_name"
+                value={form.values.last_name}
+                touched={form.touched.last_name}
+                error={form.errors.last_name}
               />
               <PasswordField 
                 wrapperClass="mb-3"
                 placeholder="password"
                 prefixIcon={<IoLockClosedOutline />}
+                onChange={form.setFieldValue}
+                name="password"
+                value={form.values.password}
+                touched={form.touched.password}
+                error={form.errors.password}
               />
               <PasswordField
                 wrapperClass="mb-5"
                 placeholder="konfirmasi password"
                 prefixIcon={<IoLockClosedOutline />}
+                onChange={form.setFieldValue}
+                name="confirm_password"
+                value={form.values.confirm_password}
+                touched={form.touched.confirm_password}
+                error={form.errors.confirm_password}
               />
               
               <ButtonPrimary 
                 type="button"
                 text="Registrasi"
+                onClick={form.handleSubmit}
               />
 
               <div className='d-flex align-items-center justify-content-center mt-4'>
@@ -58,11 +101,11 @@ const Register = () => {
                 </span>
                 <TextButton 
                   text="di sini"
-                  className="text-app-danger text-app-sm"
+                  className="text-app-danger text-app-sm ms-1"
                 />
               </div>
 
-            </form>
+            </div>
           </div>
         </div>
         <div className="col-md-6 padding-0">

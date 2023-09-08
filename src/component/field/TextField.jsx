@@ -6,8 +6,16 @@ const TextField = (props) => {
     className,
     label,
     placeholder,
-    prefixIcon
+    prefixIcon,
+    name,
+    onChange,
+    value
   } = props
+
+  const handleChange = (e) => {
+    console.log(e.target.value)
+    onChange(name, e.target.value, false)
+  } 
 
   return(
     <div className={`input-field-container ${wrapperClass}`}>
@@ -21,6 +29,9 @@ const TextField = (props) => {
         <input 
           className={`text-input-field ${className}`}
           placeholder={placeholder}
+          value={value}
+          onChange={handleChange}
+          
         />
       </div>
     </div>

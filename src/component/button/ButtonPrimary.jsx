@@ -2,7 +2,8 @@ const ButtonPrimary = (props) => {
   const {
     type,
     text,
-    disabled
+    disabled,
+    onClick
   } = props
 
   return(
@@ -10,6 +11,7 @@ const ButtonPrimary = (props) => {
       className="button-primary"
       type={type}
       disabled={disabled}
+      onClick={onClick}
     >
       {text}
     </button>

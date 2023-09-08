@@ -8,6 +8,9 @@ import TopUp from '../pages/topup/index'
 import Transaction from '../pages/transaction/index'
 import Account from '../pages/account/index'
 
+import Login from '../pages/login/index'
+import Register from '../pages/register/index'
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -24,6 +27,14 @@ const router = createBrowserRouter([
 	{
     path: "/account",
     element: <Account />,
+  },
+  {
+    path: "/login",
+    element: <Login />,
+  },
+  {
+    path: "/register",
+    element: <Register />,
   },
 ]);
 

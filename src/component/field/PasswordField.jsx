@@ -10,7 +10,10 @@ const PasswordField = (props) => {
     className,
     label,
     placeholder,
-    prefixIcon
+    prefixIcon,
+    name,
+    onChange,
+    value
   } = props
 
   const handleEyeClick = () => {
@@ -23,6 +26,10 @@ const PasswordField = (props) => {
 
     setShow(!isShow)
   }
+
+  const handleChange = (e) => {
+    onChange(name, e.target.value, false)
+  } 
 
   return(
     <div className={`input-field-container ${wrapperClass}`}>
@@ -37,6 +44,8 @@ const PasswordField = (props) => {
           className={`text-input-field ${className}`}
           placeholder={placeholder}
           type={type}
+          value={value}
+          onChange={handleChange}
         />
         <div className={`text-input-suffix-icon`}>
           <button
