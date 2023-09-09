@@ -4,22 +4,27 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
 	user:null,
 	data: [],
-	status:'idle'
+	status:'idle',
+	message:null
 };
 
 const userSlice = createSlice({
 	name:"user",
 	initialState:initialState,
 	reducers:{
+		RESET_STATUS(state){
+			state.status = 'idle'
+		},
 		FETCH_USER_REQUEST(state){
-			state.loading = true
+			state.status = 'loading'
 		},
 		FETCH_USER_SUCCESS(state, actions){
-			state.loading = false
+			state.status = 'success'
 			state.user = actions.payload.user
 		},
-		FETCH_USER_ERROR(state){
-			state.loading = false
+		FETCH_USER_ERROR(state, actions){
+			state.status = 'error'
+			state.message = actions.payload.message
 		}
 	}
 })

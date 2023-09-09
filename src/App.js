@@ -1,5 +1,7 @@
+import 'react-loading-skeleton/dist/skeleton.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './assets/styles/main.css'
+
 
 import Route from './route/Route';
 import { Provider } from 'react-redux';

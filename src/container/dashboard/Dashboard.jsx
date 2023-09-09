@@ -1,21 +1,15 @@
-import React, { useEffect } from 'react'
-import { fetchData } from '../../store/actions/userAction'
-import { useDispatch } from 'react-redux'
+import React from 'react'
 
+import ModalError from '../../component/modal/ModalError'
 import BannerSaldo from '../../component/banner/BannerSaldo'
 import Category from './category/Category'
 
 const Dashboard = () => {
-  const dispatch = useDispatch()
-
-  useEffect(() => {
-    dispatch(fetchData())
-  }, [])
-
   return(
     <>
       <BannerSaldo />
       <Category />  
+      <ModalError />
     </>
 
   )

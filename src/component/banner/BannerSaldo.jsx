@@ -2,21 +2,47 @@ import { IoEyeOutline } from 'react-icons/io5'
 import PhotoProfile from '../profile/PhotoProfile'
 import TextButton from '../button/TextButton'
 import saldoBg from '../../assets/images/bg-saldo.png'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import Skeleton from 'react-loading-skeleton'
+import { useEffect } from 'react'
+import { modalError } from '../../store/actions/modalAction'
+import { fetchData as fetchUser } from '../../store/actions/userAction'
+import { fetchData as fetchBalance } from '../../store/actions/balanceAction'
+
 
 const BannerSaldo = () => {
+  const dispatch = useDispatch()
+  const { user, status:statusUser, message:messageUser } = useSelector(state => state.user)
+  const { balance, status:statusBalance, message:messageBalance } = useSelector(state => state.balance)
 
-  const { user } = useSelector(state => state.user)
+  useEffect(() => {
+    dispatch(fetchUser())
+    dispatch(fetchBalance())
+  }, [])
 
-  console.log(user)
+  useEffect(() => {
+    if(statusUser == 'error'){
+      dispatch(modalError(true, {description:messageUser}))
+    }
+
+    if(statusBalance == 'error'){
+      dispatch(modalError(true, {description:messageBalance}))
+    }
+  }, [statusUser])
 
   return (
     <div className='container mt-5 mb-section'>
       <div className='row'>
         <div className='col-md-6'>
-          <PhotoProfile />
-          <p className='mb-3 text-app-dark text-head-4'>Selamat Datang,</p>
-          <h1 className='text-app-dark text-head-2 fw-bold'>{user?.first_name} {user?.last_name}</h1>
+          {statusUser == 'loading' ? (
+            <Skeleton height={180} />
+          ):(
+            <>
+                <PhotoProfile />
+                <p className='mb-3 text-app-dark text-head-4'>Selamat Datang,</p>
+                <h1 className='text-app-dark text-head-2 fw-bold'>{user?.first_name} {user?.last_name}</h1>
+              </>
+          )}
         </div>
         <div className='col-md-6'>
           <div className='saldo-wrapper'>
@@ -24,7 +50,7 @@ const BannerSaldo = () => {
               <span className='text-app-white mb-3 d-block'>
                 Saldo anda
               </span>
-              <h2 className='text-app-white text-head-4 fw-bold mb-3'>Rp 1.000.000</h2>
+              <h2 className='text-app-white text-head-4 fw-bold mb-3'>{balance}</h2>
               <div className='d-flex align-items-center'>
                 <TextButton 
                   text="Lihat saldo"

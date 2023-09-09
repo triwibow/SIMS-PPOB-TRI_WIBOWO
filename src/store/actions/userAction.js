@@ -16,6 +16,8 @@ export const fetchData = () => async (dispatch, getState) => {
     dispatch(FETCH_USER_SUCCESS({user:data.data}));
     return response;
   }catch(err){
-    dispatch(FETCH_USER_ERROR);
+    const error = err
+    const errors = error.response?.data
+    dispatch(FETCH_USER_ERROR({message:errors?.message}));
   }
 }
