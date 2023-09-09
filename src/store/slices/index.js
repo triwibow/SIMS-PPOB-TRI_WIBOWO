@@ -6,6 +6,7 @@ import modalReducer from './modalSlice';
 import userSlice from './userSlice';
 import balanceSlice from './balanceSlice';
 import serviceSlice from './serviceSlice';
+import topupSlice from './topupSlice';
 
 const rootReducer = combineReducers({
   auth:authSlice,
@@ -14,7 +15,8 @@ const rootReducer = combineReducers({
   modal:modalReducer,
   user:userSlice,
   balance:balanceSlice,
-  service:serviceSlice
+  service:serviceSlice,
+  topup:topupSlice
 });
 
 export default rootReducer;

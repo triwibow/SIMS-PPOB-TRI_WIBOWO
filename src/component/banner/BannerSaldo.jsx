@@ -8,6 +8,7 @@ import { useEffect } from 'react'
 import { modalError } from '../../store/actions/modalAction'
 import { fetchData as fetchUser } from '../../store/actions/userAction'
 import { fetchData as fetchBalance } from '../../store/actions/balanceAction'
+import { formatRupiah } from '../../helper/formatter'
 
 const SkeletonUser = () => {
   return (
@@ -59,7 +60,9 @@ const BannerSaldo = () => {
               <span className='text-app-white mb-3 d-block'>
                 Saldo anda
               </span>
-              <h2 className='text-app-white text-head-4 fw-bold mb-3'>{balance}</h2>
+              <h2 className='text-app-white text-head-4 fw-bold mb-3'>
+                {balance ? formatRupiah(balance):'Rp 0'}
+              </h2>
               <div className='d-flex align-items-center'>
                 <TextButton 
                   text="Lihat saldo"

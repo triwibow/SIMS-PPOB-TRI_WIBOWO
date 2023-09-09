@@ -4,20 +4,27 @@ import BannerSaldo from '../../component/banner/BannerSaldo'
 import ButtonPrimary from '../../component/button/ButtonPrimary'
 import TextMaskField from '../../component/field/TextMaskField'
 import { useFormik } from 'formik'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { topupSchema } from '../../schema/topupSchema'
 import { formatRupiah, deformatRupiah } from '../../helper/formatter'
+import { topup } from '../../store/actions/topupAction'
+import { modalError, modalSuccess } from '../../store/actions/modalAction'
+import ModalError from '../../component/modal/ModalError'
+import ModalSuccess from '../../component/modal/ModalSuccess'
 
 const TopUp = () => {
   const dispatch = useDispatch()
+  const { status, message } = useSelector(state => state.topup)
   const [activeNominal, setActiveNominal] = useState('')
 
   const onSubmit = (val) => {
     const payload = {
-      top_up_amount:parseInt(val.top_up_amount),
+      top_up_amount:parseInt(deformatRupiah(val.top_up_amount)),
     }
 
-    // dispatch(register(payload))
+    dispatch(topup(payload))
+
+    form.setFieldValue('top_up_amount','', false)
   }
 
   const form = useFormik({
@@ -80,6 +87,16 @@ const TopUp = () => {
     checkMatchNominal()
   }, [form.values.top_up_amount])
 
+  useEffect(() => {
+    if(status == 'success'){
+      dispatch(modalSuccess(true, {description:message}))
+    }
+
+    if(status == 'error'){
+      dispatch(modalError(true, {description:message}))
+    }
+  }, [status])
+
   const _renderNominal = (item) => {
     return (
       <div className='col-md-4 mb-2' key={item.id}>
@@ -122,7 +139,7 @@ const TopUp = () => {
               type="button"
               text="Top Up"
               onClick={form.handleSubmit}
-              loading={false}
+              loading={status == 'loading'}
               disabled={form.values.top_up_amount == ''}
             />
           </div>
@@ -135,6 +152,8 @@ const TopUp = () => {
           </div>
         </div>
       </div>
+      <ModalError />
+      <ModalSuccess />
     </>
 
   )
