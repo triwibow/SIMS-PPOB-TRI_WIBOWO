@@ -1,6 +1,6 @@
 import React from "react";
 
-const TextField = (props) => {
+const TextMaskField = (props) => {
   const {
     wrapperClass,
     className,
@@ -11,11 +11,15 @@ const TextField = (props) => {
     onChange,
     value,
     touched,
-    error
+    error,
+		mask,
+		demask
   } = props
 
   const handleChange = (e) => {
-    onChange(name, e.target.value, false)
+		const val = demask(e.target.value)
+		console.log('val : ',val)
+    onChange(name, mask(val), false)
   } 
 
   const isError = touched && error ? true:false;
@@ -47,4 +51,4 @@ const TextField = (props) => {
   )
 }
 
-export default TextField
+export default TextMaskField
