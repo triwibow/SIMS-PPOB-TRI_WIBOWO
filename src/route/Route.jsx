@@ -1,7 +1,11 @@
 import {
 	createBrowserRouter,
 	RouterProvider,
+  Navigate
 } from "react-router-dom";
+
+import AuthRoute from "./AuthRoute";
+import ProtectedRoute from "./ProtectedRoute";
 
 import Dashboard from '../pages/dashboard/index'
 import TopUp from '../pages/topup/index'
@@ -13,32 +17,44 @@ import Register from '../pages/register/index'
 
 const router = createBrowserRouter([
   {
-    path: "/",
-    element: <Dashboard />,
-  },
-	{
-    path: "/topup",
-    element: <TopUp />,
-  },
-	{
-    path: "/transaction",
-    element: <Transaction />,
-  },
-	{
-    path: "/account",
-    element: <Account />,
-  },
-  {
     path: "/login",
-    element: <Login />,
+    element: <AuthRoute>
+      <Login />
+    </AuthRoute>,
   },
   {
     path: "/register",
     element: <Register />,
   },
+  {
+    path: "/",
+    element: <ProtectedRoute>
+                <Dashboard />
+              </ProtectedRoute>,
+  },
+	{
+    path: "/topup",
+    element: <ProtectedRoute>
+              <TopUp />
+            </ProtectedRoute>,
+  },
+	{
+    path: "/transaction",
+    element: <ProtectedRoute>
+              <Transaction />
+            </ProtectedRoute>,
+  },
+	{
+    path: "/account",
+    element: <ProtectedRoute>
+              <Account />
+            </ProtectedRoute>,
+  },
+  
 ]);
 
 const Route = () => {
+  
 	return (
 		<RouterProvider router={router} />
 	)
