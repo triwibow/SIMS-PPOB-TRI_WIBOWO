@@ -7,6 +7,7 @@ import userSlice from './userSlice';
 import balanceSlice from './balanceSlice';
 import serviceSlice from './serviceSlice';
 import topupSlice from './topupSlice';
+import transactionSlice from './transactionSlice';
 
 const rootReducer = combineReducers({
   auth:authSlice,
@@ -16,7 +17,8 @@ const rootReducer = combineReducers({
   user:userSlice,
   balance:balanceSlice,
   service:serviceSlice,
-  topup:topupSlice
+  topup:topupSlice,
+  transaction:transactionSlice
 });
 
 export default rootReducer;

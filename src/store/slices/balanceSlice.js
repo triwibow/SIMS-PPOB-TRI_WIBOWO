@@ -28,7 +28,7 @@ const balanceSlice = createSlice({
 		},
 		SET_BALANCE(state, actions){
 			state.balance = actions.payload.balance
-		}
+		},
 	}
 })
 
