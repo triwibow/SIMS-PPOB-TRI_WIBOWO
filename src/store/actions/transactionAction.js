@@ -33,13 +33,15 @@ export const transaction = (payload)=> async (dispatch, getState) => {
   }
 }
 
-export const fetchTransactions = (payload) => async (dispatch, getState) => {
+export const fetchTransactions = (params) => async (dispatch, getState) => {
   dispatch(FETCH_TRANSACTION_REQUEST())
   try {
-    const response = await API.get('transaction/history')
+    const response = await API.get('transaction/history', {params:params})
     const data = await response.data
-    console.log('data ', data)
-    dispatch(FETCH_TRANSACTION_SUCCESS({transactions:data.data.records}))
+    dispatch(FETCH_TRANSACTION_SUCCESS({
+      transactions:data.data.records,
+      limit:params.limit
+    }))
   } catch(err){
     const error = err
     const errors = error.response?.data

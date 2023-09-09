@@ -45,7 +45,7 @@ const Category = () => {
   const _renderSkeleton = () => {
     let data = [];
     for (var i = 0; i < 12; i++) {
-      data.push(<SkeletonLoader />);
+      data.push(<SkeletonLoader key={i}/>);
     }
     return data;
   }

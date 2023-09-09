@@ -3,7 +3,9 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   message:null,
 	status:'idle',
-  transactions:[]
+  transactions:[],
+  offset:0,
+  limit:5
 };
 
 const transactionSlice = createSlice({
@@ -31,6 +33,7 @@ const transactionSlice = createSlice({
     FETCH_TRANSACTION_SUCCESS(state, actions){
       state.status = 'success'
       state.transactions = actions.payload.transactions
+      state.limit = actions.payload.limit
     },
     FETCH_TRANSACTION_ERROR(state){
       state.status = 'error'

@@ -8,14 +8,13 @@ import { fetchTransactions } from '../../store/actions/transactionAction'
 import TextButton from '../../component/button/TextButton'
 
 
-
 const Transaction = () => {
 
   const dispatch = useDispatch()
-  const { status, transactions, message } = useSelector(state => state.transaction)
+  const { status, transactions, message, limit, offset } = useSelector(state => state.transaction)
 
   useEffect(() => {
-    dispatch(fetchTransactions())
+    dispatch(fetchTransactions({limit:limit, offset:offset}))
   }, [])
 
   useEffect(() => {
@@ -23,6 +22,14 @@ const Transaction = () => {
       dispatch(modalError(true, {description:message}))
     }
   }, [status])
+
+  const handleClick = () => {
+    const param = {
+      limit: limit + 5,
+      offset:0
+    }
+    dispatch(fetchTransactions(param))
+  }
 
   const _renderItem = (item) => {
     return (
@@ -58,6 +65,7 @@ const Transaction = () => {
               <TextButton 
                 className="text-app-danger mb-5"
                 text="Show More"
+                onClick={handleClick}
               />
             </>
           )}
