@@ -6,7 +6,8 @@ const ButtonOutline = (props) => {
       text,
       className,
       disabled,
-      loading
+      loading,
+      onClick
     } = props
   
     return(
@@ -14,6 +15,7 @@ const ButtonOutline = (props) => {
         className={`button-outline-danger ${className}`}
         type={type}
         disabled={disabled}
+        onClick={onClick}
       >
         {loading? (
           <Spinner color="danger" size={'sm'}/>

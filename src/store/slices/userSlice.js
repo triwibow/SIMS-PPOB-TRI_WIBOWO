@@ -18,10 +18,24 @@ const userSlice = createSlice({
 			state.status = 'loading'
 		},
 		FETCH_USER_SUCCESS(state, actions){
-			state.status = 'success'
+			state.status = 'idle'
 			state.user = actions.payload.user
 		},
 		FETCH_USER_ERROR(state, actions){
+			state.status = 'error'
+			state.user = null
+			state.message = actions.payload.message
+		},
+
+		EDIT_USER_REQUEST(state){
+			state.status = 'loading'
+		},
+		EDIT_USER_SUCCESS(state, actions){
+			state.status = 'success'
+			state.user = actions.payload.user
+			state.message = actions.payload.message
+		},
+		EDIT_USER_ERROR(state, actions){
 			state.status = 'error'
 			state.user = null
 			state.message = actions.payload.message
@@ -30,9 +44,15 @@ const userSlice = createSlice({
 })
 
 export const { 
+	RESET_STATUS,
+
 	FETCH_USER_REQUEST,
 	FETCH_USER_SUCCESS,
-	FETCH_USER_ERROR
+	FETCH_USER_ERROR,
+
+	EDIT_USER_REQUEST,
+	EDIT_USER_SUCCESS,
+	EDIT_USER_ERROR
 } = userSlice.actions;
 
 export default userSlice.reducer;
