@@ -3,7 +3,6 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
 	user:null,
-	data: [],
 	status:'idle',
 	message:null
 };
@@ -24,6 +23,7 @@ const userSlice = createSlice({
 		},
 		FETCH_USER_ERROR(state, actions){
 			state.status = 'error'
+			state.user = null
 			state.message = actions.payload.message
 		}
 	}

@@ -9,6 +9,15 @@ import { modalError } from '../../store/actions/modalAction'
 import { fetchData as fetchUser } from '../../store/actions/userAction'
 import { fetchData as fetchBalance } from '../../store/actions/balanceAction'
 
+const SkeletonUser = () => {
+  return (
+    <>
+      <Skeleton width={'20%'} height={80} className='mb-3' />
+      <Skeleton height={40} className='mb-2' />
+      <Skeleton height={40} />
+    </>
+  )
+}
 
 const BannerSaldo = () => {
   const dispatch = useDispatch()
@@ -35,12 +44,12 @@ const BannerSaldo = () => {
       <div className='row'>
         <div className='col-md-6'>
           {statusUser == 'loading' ? (
-            <Skeleton height={180} />
+            <SkeletonUser />
           ):(
             <>
                 <PhotoProfile />
                 <p className='mb-3 text-app-dark text-head-4'>Selamat Datang,</p>
-                <h1 className='text-app-dark text-head-2 fw-bold'>{user?.first_name} {user?.last_name}</h1>
+                <h1 className='text-app-dark text-head-2 fw-bold text-capitalize'>{user?.first_name} {user?.last_name}</h1>
               </>
           )}
         </div>

@@ -1,85 +1,63 @@
-const Category = () => {
+import { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { fetchData } from '../../../store/actions/serviceAction'
+import { modalError } from '../../../store/actions/modalAction'
+import Skeleton from 'react-loading-skeleton'
 
-  const data = [
-    {
-      id:"1",
-      icon:require('../../../assets/icons/PBB.png'),
-      text:'PBB'
-    },
-    {
-      id:"2",
-      icon:require('../../../assets/icons/Listrik.png'),
-      text:'Listrik'
-    },
-    {
-      id:"3",
-      icon:require('../../../assets/icons/Pulsa.png'),
-      text:'Pulsa'
-    },
-    {
-      id:"4",
-      icon:require('../../../assets/icons/PDAM.png'),
-      text:'PDAM'
-    },
-    {
-      id:"5",
-      icon:require('../../../assets/icons/PGN.png'),
-      text:'PGN'
-    },
-    {
-      id:"6",
-      icon:require('../../../assets/icons/Televisi.png'),
-      text:'TV Langganan'
-    },
-    {
-      id:"7",
-      icon:require('../../../assets/icons/Musik.png'),
-      text:'Musik'
-    },
-    {
-      id:"8",
-      icon:require('../../../assets/icons/Game.png'),
-      text:'Voucher Game'
-    },
-    {
-      id:"9",
-      icon:require('../../../assets/icons/Voucher Makanan.png'),
-      text:'Voucher Makanan'
-    },
-    {
-      id:"10",
-      icon:require('../../../assets/icons/Kurban.png'),
-      text:'Kurban'
-    },
-    {
-      id:"11",
-      icon:require('../../../assets/icons/Zakat.png'),
-      text:'Zakat'
-    },
-    {
-      id:"12",
-      icon:require('../../../assets/icons/Paket Data.png'),
-      text:'Paket Data'
+const SkeletonLoader = () => {
+  return (
+    <>
+      <div className='col-1'>
+        <Skeleton height={60} className='mb-2' />
+        <Skeleton height={20} />
+      </div>
+    </>
+  )
+}
+
+const Category = () => {
+  const dispatch = useDispatch()
+  const { services, status, message } = useSelector(state => state.service)
+
+  useEffect(() => {
+    dispatch(fetchData())
+  }, [])
+
+  useEffect(() => {
+    if(status == 'error'){
+      dispatch(modalError(true, {description:message}))
     }
-  ]
+  }, [status])
 
   const _renderItem = (item) => {
     return (
-      <div className='col-1' key={item.id}>
+      <div className='col-1' key={item.service_code}>
         <button className='button-icon-text'> 
-          <img src={item.icon} alt={`icon ${item.text}`} className='mb-2' />
-          <span className='text-app-md text-center'>{item.text}</span>
+          <img src={item.service_icon} alt={`icon ${item.service_name}`} className='mb-2 d-block mx-auto' />
+          <span className='text-app-sm text-center'>{item.service_name}</span>
         </button>
       </div>
     )
   }
 
+  const _renderSkeleton = () => {
+    let data = [];
+    for (var i = 0; i < 12; i++) {
+      data.push(<SkeletonLoader />);
+    }
+    return data;
+  }
+ 
   return (
     <div className="container"> 
       <div className="row">
-        {data.map(item => {
-          return _renderItem(item)
-        })}
+        {status == 'loading' ? (
+          _renderSkeleton()
+        ):(
+          services.map(item => {
+            return _renderItem(item)
+          })
+        )}
       </div>
     </div>
   )
