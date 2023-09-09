@@ -7,7 +7,7 @@ import { useFormik } from 'formik'
 import { useDispatch, useSelector } from 'react-redux'
 import { topupSchema } from '../../schema/topupSchema'
 import { formatRupiah, deformatRupiah } from '../../helper/formatter'
-import { topup } from '../../store/actions/topupAction'
+import { topup, resetStatus } from '../../store/actions/topupAction'
 import { modalError, modalSuccess } from '../../store/actions/modalAction'
 import ModalError from '../../component/modal/ModalError'
 import ModalSuccess from '../../component/modal/ModalSuccess'
@@ -152,8 +152,16 @@ const TopUp = () => {
           </div>
         </div>
       </div>
-      <ModalError />
-      <ModalSuccess />
+      <ModalError 
+        onClose={() => {
+          dispatch(resetStatus())
+        }}
+      />
+      <ModalSuccess 
+        onClose={() => {
+          dispatch(resetStatus())
+        }}
+      />
     </>
 
   )
