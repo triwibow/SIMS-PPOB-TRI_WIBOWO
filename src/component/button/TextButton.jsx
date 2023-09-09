@@ -1,11 +1,12 @@
 const TextButton = (props) => {
   const {
     text,
-    className
+    className,
+    onClick
   } = props
 
   return (
-    <button className={`text-button ${className}`}>
+    <button className={`text-button ${className}`} onClick={onClick}>
       {text}
     </button>
   )

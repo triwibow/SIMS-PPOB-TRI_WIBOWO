@@ -1,11 +1,19 @@
-const CardTransaction = () => {
+import { formatRupiah } from "../../../helper/formatter"
+
+const CardTransaction = (props) => {
+  const {item} = props
   return (
     <div className="card-transaction">
       <div>
-        <p className="text-app-success text-head-4 mb-3 fw-bold">+ Rp 10.000,00</p>
-        <p className="text-app-secondary text-app-sm">17 Agustus 2023 13:10 WIB</p>
+        {item.transaction_type == 'PAYMENT'? (
+          <p className="text-app-danger text-head-4 mb-3 fw-bold">- {formatRupiah(item.total_amount)}</p>
+        ):(
+          <p className="text-app-success text-head-4 mb-3 fw-bold">+ {formatRupiah(item.total_amount)}</p>
+        )}
+        
+        <p className="text-app-secondary text-app-sm">{item.created_on}</p>
       </div>
-      <span className="text-app-secondary text-app-sm">Top Up Saldo</span>
+      <span className="text-app-secondary text-app-sm">{item.description}</span>
     </div>
   )
 }

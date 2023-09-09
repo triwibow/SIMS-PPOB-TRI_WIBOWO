@@ -1,27 +1,35 @@
-import React from 'react'
-import { IoCashOutline } from 'react-icons/io5'
+import React, { useEffect } from 'react'
 import BannerSaldo from '../../component/banner/BannerSaldo'
-import ButtonPrimary from '../../component/button/ButtonPrimary'
-import TextField from '../../component/field/TextField'
 import CardTransaction from './component/CardTransaction'
+import { useDispatch, useSelector } from 'react-redux'
+import { modalError } from '../../store/actions/modalAction'
+import ModalError from '../../component/modal/ModalError'
+import { fetchTransactions } from '../../store/actions/transactionAction'
+import TextButton from '../../component/button/TextButton'
+
+
 
 const Transaction = () => {
 
-  const transaction = [
-    {
-      id:"1",
-      nominal:"+ Rp 10.000"
-    },
-    {
-      id:"2",
-      nominal:"- Rp 40.000"
+  const dispatch = useDispatch()
+  const { status, transactions, message } = useSelector(state => state.transaction)
+
+  useEffect(() => {
+    dispatch(fetchTransactions())
+  }, [])
+
+  useEffect(() => {
+    if(status == 'error'){
+      dispatch(modalError(true, {description:message}))
     }
-  ]
+  }, [status])
 
   const _renderItem = (item) => {
     return (
       <div className='col-md-12 mb-4' key={item.id}>
-        <CardTransaction />
+        <CardTransaction 
+          item={item}
+        />
       </div>
     )
   }
@@ -35,11 +43,27 @@ const Transaction = () => {
             <h5 className='mb-3 text-app-dark text-head-5 fw-bold'>Semua Transaksi</h5>
           </div> 
 
-          {transaction.map(item => {
-            return _renderItem(item)
-          })}
+          
+
+          {transactions.length < 1 ? (
+            <div className='col-md-12'>
+              <h6 className='text-app-primary text-head-5 text-center'>Belum ada transaksi</h6>
+            </div>
+          ):(
+            <>
+              {transactions.map(item => {
+                return _renderItem(item)
+              })}
+
+              <TextButton 
+                className="text-app-danger mb-5"
+                text="Show More"
+              />
+            </>
+          )}
         </div>
       </div>
+      <ModalError />
     </>
 
   )

@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   message:null,
 	status:'idle',
+  transactions:[]
 };
 
 const transactionSlice = createSlice({
@@ -22,6 +23,18 @@ const transactionSlice = createSlice({
     TRANSACTION_ERROR(state, actions){
       state.status = 'error'
       state.message = actions.payload.message
+    },
+
+    FETCH_TRANSACTION_REQUEST(state){
+      state.status = 'loading'
+    },
+    FETCH_TRANSACTION_SUCCESS(state, actions){
+      state.status = 'success'
+      state.transactions = actions.payload.transactions
+    },
+    FETCH_TRANSACTION_ERROR(state){
+      state.status = 'error'
+      state.transactions = []
     }
 	}
 })
@@ -30,7 +43,11 @@ export const {
   RESET_STATUS,
 	TRANSACTION_REQUEST,
   TRANSACTION_SUCCESS,
-  TRANSACTION_ERROR
+  TRANSACTION_ERROR,
+
+  FETCH_TRANSACTION_REQUEST,
+  FETCH_TRANSACTION_SUCCESS,
+  FETCH_TRANSACTION_ERROR
 } = transactionSlice.actions;
 
 export default transactionSlice.reducer;
