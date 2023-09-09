@@ -1,5 +1,5 @@
 import { API } from "../../config/api";
-import { setAuthToken } from "./authAction";
+// import { setAuthToken } from "./authAction";
 
 import {
   RESET_STATUS,
@@ -19,12 +19,12 @@ export const login = (payload) => async (dispatch, getState) => {
     const response = await API.post('/login', payload)
     const data = await response.data
     
-    dispatch(setAuthToken(data.token))
+    // dispatch(setAuthToken(data.token))
     dispatch(LOGIN_SUCCESS({message:data?.message}))
     
   }catch(err){
     const error = err
     const errors = error.response?.data
-    dispatch(LOGIN_ERROR({message:errors?.messages}))
+    dispatch(LOGIN_ERROR({message:errors?.message}))
   }
 }
