@@ -3,12 +3,14 @@ import authSlice from './authSlice';
 import registerSlice from './registerSlice';
 import loginSlice from './loginSlice';
 import modalReducer from './modalSlice';
+import userSlice from './userSlice';
 
 const rootReducer = combineReducers({
   auth:authSlice,
   register:registerSlice,
   login:loginSlice,
-  modal:modalReducer
+  modal:modalReducer,
+  user:userSlice
 });
 
 export default rootReducer;
