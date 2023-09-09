@@ -11,7 +11,8 @@ const TextField = (props) => {
     onChange,
     value,
     touched,
-    error
+    error,
+    disabled
   } = props
 
   const handleChange = (e) => {
@@ -35,7 +36,7 @@ const TextField = (props) => {
           value={value}
           onChange={handleChange}
           type={'text'}
-          
+          disabled={disabled? disabled:false}
         />
       </div>
       {isError && (

@@ -10,6 +10,7 @@ import ProtectedRoute from "./ProtectedRoute";
 import Dashboard from '../pages/dashboard/index'
 import TopUp from '../pages/topup/index'
 import Transaction from '../pages/transaction/index'
+import Pay from '../pages/pay/index'
 import Account from '../pages/account/index'
 
 import Login from '../pages/login/index'
@@ -36,6 +37,12 @@ const router = createBrowserRouter([
     path: "/topup",
     element: <ProtectedRoute>
               <TopUp />
+            </ProtectedRoute>,
+  },
+  {
+    path: "/pay/:code",
+    element: <ProtectedRoute>
+              <Pay />
             </ProtectedRoute>,
   },
 	{
