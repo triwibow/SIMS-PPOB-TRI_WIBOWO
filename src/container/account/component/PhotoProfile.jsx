@@ -28,6 +28,7 @@ const PhotoProfile = (props) => {
 
   const dispatch = useDispatch()
   const inputRef = useRef(null)
+  const nullImage = "https://minio.nutech-integrasi.app/take-home-test/null"
 
   const uploadProfile = (file) => {
     const payload = new FormData()
@@ -69,7 +70,7 @@ const PhotoProfile = (props) => {
   return (
     <div className={`profile-photo-md ${className}`}>
       <input style={{display:'none'}} type="file" name="photo" ref={inputRef} onChange={handleFileChange} />
-      {user ? (
+      {user?.profile_image != nullImage ? (
         <img 
           src={user.profile_image} 
           alt="photo profile" 

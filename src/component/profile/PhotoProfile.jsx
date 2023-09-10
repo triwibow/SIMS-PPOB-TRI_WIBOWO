@@ -3,9 +3,11 @@ const PhotoProfile = (props) => {
     user
   } = props
 
+  const nullImage = "https://minio.nutech-integrasi.app/take-home-test/null"
+
   return (
     <div className="profile-photo-sm mb-4">
-      {user ? (
+      {user?.profile_image != nullImage ? (
         <img 
           src={user.profile_image} 
           alt="photo profile" 
