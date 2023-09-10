@@ -60,6 +60,7 @@ const Account = () => {
 						<form>
 							<PhotoProfile 
 								className="mb-4 mx-auto"
+								user={user}
 							/>
 							<TextField 
 								wrapperClass="mb-3"

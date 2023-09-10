@@ -48,7 +48,9 @@ const BannerSaldo = () => {
             <SkeletonUser />
           ):(
             <>
-                <PhotoProfile />
+                <PhotoProfile 
+                  user={user}
+                />
                 <p className='mb-3 text-app-dark text-head-4'>Selamat Datang,</p>
                 <h1 className='text-app-dark text-head-2 fw-bold text-capitalize'>{user?.first_name} {user?.last_name}</h1>
               </>

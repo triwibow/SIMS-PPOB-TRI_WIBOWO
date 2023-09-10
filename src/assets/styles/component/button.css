@@ -73,3 +73,12 @@
   color: #646464;
   border-radius: 23px;
 }
+
+.button-icon-circle {
+  background-color: #FFFFFF;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  outline: none;
+  border: 1px solid #e9e9e9;
+}

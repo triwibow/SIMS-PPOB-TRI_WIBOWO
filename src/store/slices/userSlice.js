@@ -39,6 +39,20 @@ const userSlice = createSlice({
 			state.status = 'error'
 			state.user = null
 			state.message = actions.payload.message
+		},
+
+		UPDATE_IMAGE_REQUEST(state){
+			state.status = 'loading'
+		},
+		UPDATE_IMAGE_SUCCESS(state, actions){
+			state.status = 'success'
+			state.user = actions.payload.user
+			state.message = actions.payload.message
+		},
+		UPDATE_IMAGE_ERROR(state, actions){
+			state.status = 'error'
+			state.user = null
+			state.message = actions.payload.message
 		}
 	}
 })
@@ -52,7 +66,11 @@ export const {
 
 	EDIT_USER_REQUEST,
 	EDIT_USER_SUCCESS,
-	EDIT_USER_ERROR
+	EDIT_USER_ERROR,
+
+	UPDATE_IMAGE_REQUEST,
+	UPDATE_IMAGE_SUCCESS,
+	UPDATE_IMAGE_ERROR
 } = userSlice.actions;
 
 export default userSlice.reducer;

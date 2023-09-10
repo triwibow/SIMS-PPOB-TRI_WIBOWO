@@ -1,10 +1,21 @@
-const PhotoProfile = () => {
+const PhotoProfile = (props) => {
+  const {
+    user
+  } = props
+
   return (
     <div className="profile-photo-sm mb-4">
-      <img 
-        src={require('../../assets/images/profile-photo.png')} 
-        alt="photo profile" 
-      />
+      {user ? (
+        <img 
+          src={user.profile_image} 
+          alt="photo profile" 
+        />
+      ):(
+        <img 
+          src={require('../../assets/images/profile-default.jpg')} 
+          alt="photo profile" 
+        />
+      )}
     </div>
   )
 }
