@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { IoAtOutline, IoPersonOutline, IoLockClosedOutline } from 'react-icons/io5'
+import { IoAtOutline, IoPersonOutline } from 'react-icons/io5'
 import TextField from '../../component/field/TextField'
 import ButtonPrimary from '../../component/button/ButtonPrimary'
 import ButtonOutline from '../../component/button/ButtonOutline'
@@ -11,6 +11,7 @@ import ModalError from '../../component/modal/ModalError'
 import ModalSuccess from '../../component/modal/ModalSuccess'
 import { useFormik } from 'formik';
 import { editProfile, resetStatus } from '../../store/actions/userAction'
+import { accountSchema } from '../../schema/accountSchema'
 
 const Account = () => {
 	const dispatch = useDispatch()
@@ -23,6 +24,7 @@ const Account = () => {
 
 	const onSubmit = (val) => {
     const payload = {
+			email:val.email,
       first_name:val.first_name,
       last_name:val.last_name
     }
@@ -35,13 +37,14 @@ const Account = () => {
       first_name:user?.first_name || "",
       last_name:user?.last_name || "",
     },
-    // validationSchema:registerSchema,
+    validationSchema:accountSchema,
 		onSubmit:onSubmit
 	});
 
 	useEffect(() => {
     if(status == 'success'){
 			dispatch(modalSuccess(true, {description:message}))
+			setEdit(false)
 		}
 
     if(status == 'error'){
@@ -68,6 +71,7 @@ const Account = () => {
 								value={form.values.email}
 								touched={form.touched.email}
 								error={form.errors.email}
+								disabled
 								
 							/>
 							<TextField 
@@ -80,6 +84,7 @@ const Account = () => {
 								value={form.values.first_name}
 								touched={form.touched.first_name}
 								error={form.errors.first_name}
+								disabled={!isEdit}
 							/>
 							<TextField 
 								wrapperClass="mb-5"
@@ -91,6 +96,7 @@ const Account = () => {
 								value={form.values.last_name}
 								touched={form.touched.last_name}
 								error={form.errors.last_name}
+								disabled={!isEdit}
 							/>
 
 							{!isEdit ? (

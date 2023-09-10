@@ -14,6 +14,10 @@
   width: 100%;
 }
 
+.text-input-field:disabled {
+  background-color: #f7f7f7;
+}
+
 .text-input-field::placeholder {
   color: #c7c7c7;
 }
