@@ -59,6 +59,11 @@
   transition: all 0.3s step-start;
 }
 
+.navbar-app-link.active {
+  color: #ff0000;
+  font-weight: bold;
+}
+
 .navbar-app-link:hover {
   color: #000;
   font-weight: bold;
@@ -118,7 +123,7 @@
   object-fit: cover;
 }
 
-@media screen and (max-width:992px){
+/* @media screen and (max-width:992px){
   .navbar-app {
     position: relative;
   }
@@ -146,12 +151,4 @@
     top: 0;
     transition: all .6s ease;
   }
-}
-
-@media screen and (max-width:768px){
-  
-}
-
-@media screen and (max-width:576px){
-
-}
+} */

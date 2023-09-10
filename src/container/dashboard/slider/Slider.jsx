@@ -72,8 +72,6 @@ const Slider = () => {
       <Swiper
         spaceBetween={5}
         slidesPerView={slidesPerView}
-        onSlideChange={() => console.log('slide change')}
-        onSwiper={(swiper) => console.log(swiper)}
         >
         <div className='row' slot='container-start'>
           <div className='col-md-12 mb-4'>

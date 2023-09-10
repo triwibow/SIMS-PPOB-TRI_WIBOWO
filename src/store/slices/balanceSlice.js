@@ -18,7 +18,6 @@ const balanceSlice = createSlice({
 			state.status = 'loading'
 		},
 		FETCH_BALANCE_SUCCESS(state, actions){
-			console.log('b :', actions.payload.balance)
 			state.status = 'success'
 			state.balance = actions.payload.balance
 		},
