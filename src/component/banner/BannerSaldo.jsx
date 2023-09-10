@@ -9,6 +9,7 @@ import { modalError } from '../../store/actions/modalAction'
 import { fetchData as fetchUser } from '../../store/actions/userAction'
 import { fetchData as fetchBalance } from '../../store/actions/balanceAction'
 import { formatRupiah } from '../../helper/formatter'
+import { Spinner } from 'reactstrap'
 
 const SkeletonUser = () => {
   return (
@@ -17,6 +18,33 @@ const SkeletonUser = () => {
       <Skeleton height={40} className='mb-2' />
       <Skeleton height={40} />
     </>
+  )
+}
+
+const SpinnerLoading = () => {
+  return (
+    <div>
+      <Spinner
+        color="light"
+        type="grow"
+        size={'sm'}
+      />
+      <Spinner
+        color="light"
+        type="grow"
+        size={'sm'}
+      />
+      <Spinner
+        color="light"
+        type="grow"
+        size={'sm'}
+      />
+      <Spinner
+        color="light"
+        type="grow"
+        size={'sm'}
+      />
+    </div>
   )
 }
 
@@ -62,9 +90,15 @@ const BannerSaldo = () => {
               <span className='text-app-white mb-3 d-block'>
                 Saldo anda
               </span>
-              <h2 className='text-app-white text-head-4 fw-bold mb-3'>
-                {balance ? formatRupiah(balance):'Rp 0'}
-              </h2>
+              
+              
+              {statusBalance == 'loading' ? (
+                <SpinnerLoading />
+              ):(
+                <h2 className='text-app-white text-head-4 fw-bold mb-3'>
+                  {balance ? formatRupiah(balance):'Rp 0'}
+                </h2>
+              )}
               <div className='d-flex align-items-center'>
                 <TextButton 
                   text="Lihat saldo"

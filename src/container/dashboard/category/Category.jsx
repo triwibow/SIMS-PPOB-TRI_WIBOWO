@@ -33,7 +33,7 @@ const Category = () => {
 
   const _renderItem = (item) => {
     return (
-      <div className='col-1' key={item.service_code}>
+      <div className='col-md-1 col-sm-4 col-6' key={item.service_code}>
         <button className='button-icon-text' onClick={() => navigate(`/pay/${item.service_code}`, {replace:true})}> 
           <img src={item.service_icon} alt={`icon ${item.service_name}`} className='mb-2 d-block mx-auto' />
           <span className='text-app-sm text-center'>{item.service_name}</span>
