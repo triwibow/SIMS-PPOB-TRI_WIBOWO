@@ -7,14 +7,22 @@ const PhotoProfile = (props) => {
 
   return (
     <div className="profile-photo-sm mb-4">
-      {user?.profile_image != nullImage ? (
-        <img 
-          src={user.profile_image} 
-          alt="photo profile" 
-        />
+      {user ? (
+        user.profile_image == nullImage ? (
+          <img 
+            src={require('../../../assets/images/profile-default.jpg')} 
+            alt="photo profile" 
+          />
+        ):(
+          <img 
+            src={user.profile_image} 
+            alt="photo profile" 
+          />
+        )
+
       ):(
         <img 
-          src={require('../../assets/images/profile-default.jpg')} 
+          src={require('../../../assets/images/profile-default.jpg')} 
           alt="photo profile" 
         />
       )}
