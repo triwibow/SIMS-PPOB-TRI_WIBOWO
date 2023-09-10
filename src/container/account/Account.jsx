@@ -26,6 +26,10 @@ const Account = () => {
 		dispatch(fetchData())
 	}, [])	
 
+	useEffect(() => {
+		console.log(user)
+	}, [user])
+
 	const onSubmit = (val) => {
     const payload = {
 			email:val.email,
@@ -37,12 +41,13 @@ const Account = () => {
 
   const form = useFormik({
 		initialValues:{
-      email:user?.email || "",
-      first_name:user?.first_name || "",
-      last_name:user?.last_name || "",
+      email:user?.email,
+      first_name:user?.first_name,
+      last_name:user?.last_name,
     },
     validationSchema:accountSchema,
-		onSubmit:onSubmit
+		onSubmit:onSubmit,
+		enableReinitialize:true
 	});
 
 	useEffect(() => {
