@@ -9,6 +9,7 @@ const Banner = (props) => {
 			src={data.banner_image} 
 			alt="banner"
 			style={{cursor:'grab'}}
+			className="img-fluid"
 		/>
   );
 }
