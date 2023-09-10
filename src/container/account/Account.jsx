@@ -12,6 +12,7 @@ import ModalSuccess from '../../component/modal/ModalSuccess'
 import { useFormik } from 'formik';
 import { editProfile, resetStatus } from '../../store/actions/userAction'
 import { accountSchema } from '../../schema/accountSchema'
+import { logout } from '../../store/actions/authAction'
 
 const Account = () => {
 	const dispatch = useDispatch()
@@ -113,6 +114,7 @@ const Account = () => {
 										type="button"
 										text="Logout"
 										disabled={false}
+										onClick={() => dispatch(logout())}
 									/>
 								</>
 							):(

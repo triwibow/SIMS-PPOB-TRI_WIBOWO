@@ -29,3 +29,7 @@ export const removeAuthToken = ()=> async (dispatch) => {
   setAuthTokenAPI(null)
   dispatch(REMOVE_AUTH_TOKEN())
 }
+
+export const logout = () => async (dispatch) => {
+  dispatch(removeAuthToken())
+}
