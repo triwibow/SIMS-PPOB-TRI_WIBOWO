@@ -1,10 +1,9 @@
 import {
-	createBrowserRouter,
-	RouterProvider,
-  Navigate
+  BrowserRouter as Router,
+  Routes,
+  Route
 } from "react-router-dom";
 
-import AuthRoute from "./AuthRoute";
 import ProtectedRoute from "./ProtectedRoute";
 
 import Dashboard from '../pages/dashboard/index'
@@ -16,55 +15,24 @@ import Account from '../pages/account/index'
 import Login from '../pages/login/index'
 import Register from '../pages/register/index'
 
-const router = createBrowserRouter([
-  {
-    path: "/login",
-    element: <AuthRoute>
-      <Login />
-    </AuthRoute>,
-  },
-  {
-    path: "/register",
-    element: <Register />,
-  },
-  {
-    path: "/",
-    element: <ProtectedRoute>
-                <Dashboard />
-              </ProtectedRoute>,
-  },
-	{
-    path: "/topup",
-    element: <ProtectedRoute>
-              <TopUp />
-            </ProtectedRoute>,
-  },
-  {
-    path: "/pay/:code",
-    element: <ProtectedRoute>
-              <Pay />
-            </ProtectedRoute>,
-  },
-	{
-    path: "/transaction",
-    element: <ProtectedRoute>
-              <Transaction />
-            </ProtectedRoute>,
-  },
-	{
-    path: "/account",
-    element: <ProtectedRoute>
-              <Account />
-            </ProtectedRoute>,
-  },
-  
-]);
 
-const Route = () => {
-  
-	return (
-		<RouterProvider router={router} />
-	)
+const RouteApp = () => {
+
+  return (
+    <Router>
+      <Routes>
+        <Route exact path="/login" element={<Login />} />
+        <Route exact path="/register" element={<Register />} />
+        <Route element={<ProtectedRoute />}>
+          <Route exact path="/" element={<Dashboard />} />
+          <Route exact path="/topup" element={<TopUp />} />
+          <Route exact path="/pay/:code" element={<Pay />} />
+          <Route exact path="/transaction" element={<Transaction />} />
+          <Route exact path="/account" element={<Account />} />
+        </Route>
+      </Routes>
+    </Router>
+  )
 }
 
-export default Route
+export default RouteApp

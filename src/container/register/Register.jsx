@@ -8,7 +8,7 @@ import ButtonPrimary from '../../component/button/ButtonPrimary'
 import TextButton from '../../component/button/TextButton'
 import { useFormik } from 'formik';
 import { registerSchema } from '../../schema/registerSchema'
-import { register } from '../../store/actions/registerAction'
+import { register, resetStatus } from '../../store/actions/registerAction'
 import { modalError, modalSuccess } from '../../store/actions/modalAction'
 import { useDispatch, useSelector } from 'react-redux'
 import ModalError from '../../component/modal/ModalError'
@@ -148,8 +148,12 @@ const Register = () => {
           </div>
         </div>
       </div>
-      <ModalError />
-      <ModalSuccess />
+      <ModalError 
+        onClose={() => dispatch(resetStatus())}
+      />
+      <ModalSuccess 
+        onClose={() => dispatch(resetStatus())}
+      />
     </>
   )
 }

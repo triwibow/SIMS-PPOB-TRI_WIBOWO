@@ -13,11 +13,14 @@ import { useFormik } from 'formik';
 import { editProfile, resetStatus } from '../../store/actions/userAction'
 import { accountSchema } from '../../schema/accountSchema'
 import { logout } from '../../store/actions/authAction'
+import { useNavigate } from 'react-router-dom'
 
 const Account = () => {
+	const navigate = useNavigate()
 	const dispatch = useDispatch()
 	const [isEdit, setEdit] = useState(false)
 	const { user, status, message } = useSelector(state => state.user)
+	const { auth_token } = useSelector(state => state.auth)
 
 	useEffect(() => {
 		dispatch(fetchData())
@@ -52,6 +55,12 @@ const Account = () => {
 			dispatch(modalError(true, {description:message}))
 		}
   }, [status])
+
+	useEffect(() => {
+		if(!auth_token){
+			navigate('/login', {replace:true})
+		}
+	}, [auth_token])
 
 	return(
 		<>

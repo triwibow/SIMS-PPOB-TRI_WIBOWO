@@ -18,7 +18,6 @@ export const register = (payload)=> async (dispatch, getState) => {
     const response = await API.post('/registration', payload)
     const data = await response.data
 
-    console.log('data : ',data)
     dispatch(REGISTER_SUCCESS({message:data?.message}))
     
   }catch(err){

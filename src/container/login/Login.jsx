@@ -18,6 +18,7 @@ const Login = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const { status, message } = useSelector(state => state.login)
+  const { auth_token } = useSelector(state => state.auth)
 
   const onSubmit = (val) => {
     const payload = {
@@ -41,7 +42,14 @@ const Login = () => {
     if(status == 'error'){
 			dispatch(modalError(true, {description:message}))
 		}
+
   }, [status])
+
+  useEffect(() => {
+    if(auth_token){
+      navigate('/', {replace:true})
+    }
+  },[auth_token])
 
 
   return (
