@@ -33,7 +33,7 @@ const Transaction = () => {
 
   const _renderItem = (item) => {
     return (
-      <div className='col-md-12 mb-4' key={item.id}>
+      <div className='col-md-12 mb-4' key={item.invoice_number}>
         <CardTransaction 
           item={item}
         />
