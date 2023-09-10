@@ -7,9 +7,7 @@ import {
   TOPUP_ERROR
 } from "../slices/topupSlice"
 
-import {
-	SET_BALANCE
-} from "../slices/balanceSlice"
+import { setBalance } from "./balanceAction";
 
 
 export const resetStatus = () => (dispatch) => {
@@ -21,10 +19,9 @@ export const topup = (payload)=> async (dispatch, getState) => {
   try {
     const response = await API.post('/topup', payload)
     const data = await response.data
-
-    console.log('data : ',data)
+    
     dispatch(TOPUP_SUCCESS({message:data?.message}))
-		dispatch(SET_BALANCE({balance:data?.data.balance}))
+		dispatch(setBalance(data?.data.balance))
     
   }catch(err){
     const error = err

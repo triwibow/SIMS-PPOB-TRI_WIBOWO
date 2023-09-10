@@ -23,8 +23,6 @@ const TopUp = () => {
     }
 
     dispatch(topup(payload))
-
-    form.setFieldValue('top_up_amount','', false)
   }
 
   const form = useFormik({
@@ -90,6 +88,7 @@ const TopUp = () => {
   useEffect(() => {
     if(status == 'success'){
       dispatch(modalSuccess(true, {description:message}))
+      form.setFieldValue('top_up_amount','', false)
     }
 
     if(status == 'error'){
