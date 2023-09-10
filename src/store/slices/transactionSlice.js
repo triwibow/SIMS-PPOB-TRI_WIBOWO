@@ -15,6 +15,9 @@ const transactionSlice = createSlice({
     RESET_STATUS(state){
       state.status = 'idle'
     },
+    RESET_LIMIT(state){
+      state.limit = 5
+    },
 		TRANSACTION_REQUEST(state){
       state.status = 'loading'
     },
@@ -44,6 +47,8 @@ const transactionSlice = createSlice({
 
 export const { 
   RESET_STATUS,
+  RESET_LIMIT,
+  
 	TRANSACTION_REQUEST,
   TRANSACTION_SUCCESS,
   TRANSACTION_ERROR,

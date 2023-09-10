@@ -4,7 +4,7 @@ import CardTransaction from './component/CardTransaction'
 import { useDispatch, useSelector } from 'react-redux'
 import { modalError } from '../../store/actions/modalAction'
 import ModalError from '../../component/modal/ModalError'
-import { fetchTransactions } from '../../store/actions/transactionAction'
+import { fetchTransactions, resetLimit } from '../../store/actions/transactionAction'
 import TextButton from '../../component/button/TextButton'
 
 
@@ -22,6 +22,12 @@ const Transaction = () => {
       dispatch(modalError(true, {description:message}))
     }
   }, [status])
+
+  useEffect(() => {
+    return () => {
+      dispatch(resetLimit())
+    }
+  }, [])
 
   const handleClick = () => {
     const param = {
@@ -49,8 +55,6 @@ const Transaction = () => {
           <div className='col-md-12 mb-3'> 
             <h5 className='mb-3 text-app-dark text-head-5 fw-bold'>Semua Transaksi</h5>
           </div> 
-
-          
 
           {transactions.length < 1 ? (
             <div className='col-md-12'>

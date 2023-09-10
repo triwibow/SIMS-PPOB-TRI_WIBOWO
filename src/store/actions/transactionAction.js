@@ -3,6 +3,7 @@ import { API } from "../../config/api";
 import { substractBalance } from "./balanceAction";
 
 import {
+  RESET_LIMIT,
   RESET_STATUS,
   TRANSACTION_REQUEST,
   TRANSACTION_SUCCESS,
@@ -15,6 +16,10 @@ import {
 
 export const resetStatus = () => (dispatch) => {
   dispatch(RESET_STATUS())
+}
+
+export const resetLimit = () => (dispatch) => {
+  dispatch(RESET_LIMIT())
 }
 
 export const transaction = (payload)=> async (dispatch, getState) => {
