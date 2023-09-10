@@ -10,7 +10,7 @@ const PhotoProfile = (props) => {
       {user ? (
         user.profile_image == nullImage ? (
           <img 
-            src={require('../../../assets/images/profile-default.jpg')} 
+            src={require('../../assets/images/profile-default.jpg')} 
             alt="photo profile" 
           />
         ):(
@@ -22,7 +22,7 @@ const PhotoProfile = (props) => {
 
       ):(
         <img 
-          src={require('../../../assets/images/profile-default.jpg')} 
+          src={require('../../assets/images/profile-default.jpg')} 
           alt="photo profile" 
         />
       )}
