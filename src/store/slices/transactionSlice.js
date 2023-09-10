@@ -31,7 +31,7 @@ const transactionSlice = createSlice({
       state.status = 'loading'
     },
     FETCH_TRANSACTION_SUCCESS(state, actions){
-      state.status = 'success'
+      state.status = 'idle'
       state.transactions = actions.payload.transactions
       state.limit = actions.payload.limit
     },
