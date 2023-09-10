@@ -12,8 +12,10 @@ import { modalError } from '../../store/actions/modalAction'
 import ModalError from '../../component/modal/ModalError'
 import { useDispatch, useSelector } from 'react-redux'
 import { login } from '../../store/actions/loginAction'
+import { useNavigate } from 'react-router-dom'
 
 const Login = () => {
+  const navigate = useNavigate()
   const dispatch = useDispatch()
   const { status, message } = useSelector(state => state.login)
 
@@ -44,7 +46,7 @@ const Login = () => {
 
   return (
     <>
-      <div className="container-fluid padding-0"> 
+      <div className="container-fluid padding-0 auth-container"> 
         <div className='row padding-0'>
           <div className="col-md-6 padding-0">
             <div className='auth-wrapper'>
@@ -91,7 +93,8 @@ const Login = () => {
                   </span>
                   <TextButton 
                     text="di sini"
-                    className="text-app-danger text-app-sm"
+                    className="text-app-danger text-app-sm ms-2"
+                    onClick={() => navigate('/register', {replace:true})}
                   />
                 </div>
               </form>

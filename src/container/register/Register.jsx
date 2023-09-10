@@ -13,9 +13,10 @@ import { modalError, modalSuccess } from '../../store/actions/modalAction'
 import { useDispatch, useSelector } from 'react-redux'
 import ModalError from '../../component/modal/ModalError'
 import ModalSuccess from '../../component/modal/ModalSuccess'
+import { useNavigate } from 'react-router-dom'
 
 const Register = () => {
-
+  const navigate = useNavigate()
   const dispatch = useDispatch()
   const { status, message } = useSelector(state => state.register)
 
@@ -54,7 +55,7 @@ const Register = () => {
 
   return (
     <>
-      <div className="container-fluid padding-0"> 
+      <div className="container-fluid padding-0 auth-container"> 
         <div className='row padding-0'>
           <div className="col-md-6">
             <div className='auth-wrapper'>
@@ -132,6 +133,7 @@ const Register = () => {
                   <TextButton 
                     text="di sini"
                     className="text-app-danger text-app-sm ms-1"
+                    onClick={() => navigate('/login', {replace:true})}
                   />
                 </div>
 
